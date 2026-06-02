@@ -10,187 +10,117 @@ const cardBase: React.CSSProperties = {
   position: "relative",
   overflow: "hidden",
   flexShrink: 0,
-  boxShadow: "0 24px 60px rgba(60, 10, 10, 0.28)",
+  boxShadow: "0 24px 60px rgba(60,10,10,0.28)",
   display: "flex",
   flexDirection: "column",
 };
 
-const GoldBar = () => (
-  <div style={{ height: "6px", background: "linear-gradient(90deg,#7A5C10,#C9A84C,#F0D080,#C9A84C,#7A5C10)", flexShrink: 0 }} />
-);
-
-const Diamond = () => (
-  <div style={{ width: "8px", height: "8px", background: "#C9A84C", transform: "rotate(45deg)", flexShrink: 0 }} />
-);
-
-const Divider = () => (
-  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-    <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg,transparent,#C9A84C)" }} />
-    <Diamond />
-    <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg,#C9A84C,transparent)" }} />
-  </div>
-);
+const brown = "#4A2018";
 
 // ── ЛИЦЕВАЯ СТОРОНА ──────────────────────────────────────────────────────────
 const FrontSide = () => (
   <div style={cardBase}>
-    <GoldBar />
-
-    {/* Фото на всю оставшуюся высоту */}
     <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
       <img
         src={PHOTO_URL}
         alt="Григорий и Ксения"
         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%", display: "block" }}
       />
-
-      {/* тёмный градиент снизу */}
       <div style={{
-        position: "absolute", bottom: 0, left: 0, right: 0, height: "320px",
-        background: "linear-gradient(to bottom, transparent, rgba(20,4,4,0.92))",
+        position: "absolute", bottom: 0, left: 0, right: 0, height: "280px",
+        background: "linear-gradient(to bottom, transparent, rgba(18,4,4,0.90))",
       }} />
-
-      {/* угловые декоры */}
-      <div style={{ position: "absolute", top: 18, left: 18, width: "38px", height: "38px", borderTop: "2px solid #C9A84C", borderLeft: "2px solid #C9A84C" }} />
-      <div style={{ position: "absolute", top: 18, right: 18, width: "38px", height: "38px", borderTop: "2px solid #C9A84C", borderRight: "2px solid #C9A84C" }} />
-
-      {/* Имена + дата поверх фото */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 48px 38px", textAlign: "center" }}>
-        <p style={{
-          fontFamily: "'Montserrat',sans-serif",
-          fontSize: "8px", letterSpacing: "5px", color: "#C9A84C",
-          textTransform: "uppercase", margin: "0 0 14px",
-        }}>
-          приглашение на свадьбу
-        </p>
-
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 48px 44px", textAlign: "center" }}>
         <h1 style={{
           fontFamily: "'Cormorant Garamond',serif",
-          fontSize: "54px", fontWeight: 300, color: "#FDFAF6",
+          fontSize: "56px", fontWeight: 300, color: "#FDFAF6",
           margin: 0, lineHeight: 1, letterSpacing: "1px",
         }}>
-          Григорий <span style={{ color: "#C9A84C", fontSize: "42px" }}>&</span> Ксения
+          Григорий <span style={{ color: "#C9A84C" }}>&</span> Ксения
         </h1>
-
-        {/* разделитель */}
-        <div style={{ margin: "18px auto", width: "120px" }}>
-          <Divider />
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", margin: "18px auto", width: "140px" }}>
+          <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg,transparent,#C9A84C)" }} />
+          <div style={{ width: "7px", height: "7px", background: "#C9A84C", transform: "rotate(45deg)", flexShrink: 0 }} />
+          <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg,#C9A84C,transparent)" }} />
         </div>
-
-        {/* дата */}
         <div style={{
           fontFamily: "'Cormorant Garamond',serif",
-          fontSize: "30px", fontWeight: 300,
-          color: "#FDFAF6", letterSpacing: "5px",
+          fontSize: "30px", fontWeight: 300, color: "#FDFAF6", letterSpacing: "6px",
         }}>
           03 · 10 · 2026
         </div>
-
-        <p style={{
-          fontFamily: "'Montserrat',sans-serif",
-          fontSize: "9px", letterSpacing: "3px",
-          color: "#C9A84C", margin: "10px 0 0", textTransform: "uppercase",
-        }}>
-          суббота · начало в 14:00
-        </p>
       </div>
     </div>
-
-    <GoldBar />
   </div>
 );
 
 // ── ОБОРОТНАЯ СТОРОНА ────────────────────────────────────────────────────────
 const BackSide = () => (
-  <div style={cardBase}>
-    <GoldBar />
-
-    {/* фоновая геометрия */}
-    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.04, pointerEvents: "none" }} viewBox="0 0 559 793" preserveAspectRatio="none">
-      <polygon points="0,0 220,0 0,220" fill="#5C1A1A" />
-      <polygon points="559,793 339,793 559,573" fill="#5C1A1A" />
-    </svg>
-
+  <div style={{ ...cardBase, background: "#FDFAF6" }}>
     <div style={{
       flex: 1, display: "flex", flexDirection: "column",
       justifyContent: "center", alignItems: "stretch",
-      padding: "48px 64px", gap: "36px", position: "relative", zIndex: 1,
+      padding: "56px 64px", gap: "38px",
     }}>
 
-      {/* 1. Имя гостя — линия */}
+      {/* линия для имени */}
       <div>
-        <p style={{
-          fontFamily: "'Montserrat',sans-serif",
-          fontSize: "8px", letterSpacing: "4px",
-          color: "#8B6914", textTransform: "uppercase", margin: "0 0 10px",
-        }}>
-          дорогой(ая)
-        </p>
-        <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg,#5C1A1A 70%,transparent)" }} />
-        <div style={{ height: "36px" }} />
-        <div style={{ width: "100%", height: "1px", background: "linear-gradient(90deg,#5C1A1A 70%,transparent)" }} />
+        <div style={{ height: "44px" }} />
+        <div style={{ width: "100%", height: "1px", background: brown, opacity: 0.3 }} />
       </div>
 
-      <Divider />
+      {/* разделитель */}
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ flex: 1, height: "1px", background: brown, opacity: 0.18 }} />
+        <div style={{ width: "6px", height: "6px", background: brown, transform: "rotate(45deg)", flexShrink: 0, opacity: 0.35 }} />
+        <div style={{ flex: 1, height: "1px", background: brown, opacity: 0.18 }} />
+      </div>
 
-      {/* 2. Приглашаем на свадьбу */}
+      {/* Приглашаем на свадьбу */}
       <div style={{ textAlign: "center" }}>
-        <p style={{
-          fontFamily: "'Montserrat',sans-serif",
-          fontSize: "8px", letterSpacing: "5px",
-          color: "#8B6914", textTransform: "uppercase", margin: "0 0 14px",
-        }}>
-          Григорий &amp; Ксения
-        </p>
         <h2 style={{
           fontFamily: "'Cormorant Garamond',serif",
-          fontSize: "46px", fontWeight: 300, color: "#5C1A1A",
-          lineHeight: 1.1, margin: 0, letterSpacing: "0.5px",
+          fontSize: "44px", fontWeight: 300, color: brown,
+          lineHeight: 1.15, margin: 0,
         }}>
-          Приглашают вас<br />
-          <em style={{ color: "#8B6914" }}>на свадьбу</em>
+          Приглашаем вас<br />
+          <em>на свадьбу</em>
         </h2>
         <p style={{
           fontFamily: "'Cormorant Garamond',serif",
-          fontSize: "16px", fontStyle: "italic",
-          color: "#5C1A1A", opacity: 0.55, margin: "10px 0 0",
+          fontSize: "17px", fontStyle: "italic",
+          color: brown, opacity: 0.5, margin: "12px 0 0",
         }}>
           03 октября 2026 года
         </p>
       </div>
 
-      <Divider />
+      {/* разделитель */}
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ flex: 1, height: "1px", background: brown, opacity: 0.18 }} />
+        <div style={{ width: "6px", height: "6px", background: brown, transform: "rotate(45deg)", flexShrink: 0, opacity: 0.35 }} />
+        <div style={{ flex: 1, height: "1px", background: brown, opacity: 0.18 }} />
+      </div>
 
-      {/* 3. QR-код */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "18px" }}>
+      {/* QR */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
         <p style={{
           fontFamily: "'Montserrat',sans-serif",
           fontSize: "8px", letterSpacing: "4px",
-          color: "#8B6914", textTransform: "uppercase", margin: 0,
+          color: brown, opacity: 0.5,
+          textTransform: "uppercase", margin: 0,
         }}>
           все подробности по QR-коду
         </p>
-
-        {/* QR в золотых уголках */}
         <div style={{ position: "relative", padding: "10px" }}>
-          <div style={{ position: "absolute", top: 0, left: 0, width: "18px", height: "18px", borderTop: "2px solid #C9A84C", borderLeft: "2px solid #C9A84C" }} />
-          <div style={{ position: "absolute", top: 0, right: 0, width: "18px", height: "18px", borderTop: "2px solid #C9A84C", borderRight: "2px solid #C9A84C" }} />
-          <div style={{ position: "absolute", bottom: 0, left: 0, width: "18px", height: "18px", borderBottom: "2px solid #C9A84C", borderLeft: "2px solid #C9A84C" }} />
-          <div style={{ position: "absolute", bottom: 0, right: 0, width: "18px", height: "18px", borderBottom: "2px solid #C9A84C", borderRight: "2px solid #C9A84C" }} />
-          <img src={QR_URL} alt="QR" style={{ width: "140px", height: "140px", display: "block" }} />
+          <div style={{ position: "absolute", top: 0, left: 0, width: "16px", height: "16px", borderTop: `1.5px solid ${brown}`, borderLeft: `1.5px solid ${brown}`, opacity: 0.4 }} />
+          <div style={{ position: "absolute", top: 0, right: 0, width: "16px", height: "16px", borderTop: `1.5px solid ${brown}`, borderRight: `1.5px solid ${brown}`, opacity: 0.4 }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, width: "16px", height: "16px", borderBottom: `1.5px solid ${brown}`, borderLeft: `1.5px solid ${brown}`, opacity: 0.4 }} />
+          <div style={{ position: "absolute", bottom: 0, right: 0, width: "16px", height: "16px", borderBottom: `1.5px solid ${brown}`, borderRight: `1.5px solid ${brown}`, opacity: 0.4 }} />
+          <img src={QR_URL} alt="QR" style={{ width: "150px", height: "150px", display: "block" }} />
         </div>
-
-        <p style={{
-          fontFamily: "'Montserrat',sans-serif",
-          fontSize: "8px", letterSpacing: "2px",
-          color: "#5C1A1A", opacity: 0.45, margin: 0,
-        }}>
-          wedding-03-10-2026.tilda.ws
-        </p>
       </div>
     </div>
-
-    <GoldBar />
   </div>
 );
 
@@ -202,7 +132,6 @@ const Index = () => (
     padding: "56px 32px 90px",
     fontFamily: "'Montserrat',sans-serif",
   }}>
-    {/* заголовок страницы */}
     <div style={{ textAlign: "center", marginBottom: "44px" }}>
       <p style={{ fontSize: "9px", letterSpacing: "5px", color: "#8B6914", textTransform: "uppercase", margin: "0 0 8px" }}>
         двустороннее приглашение · формат А5 · 148×210 мм
@@ -212,7 +141,6 @@ const Index = () => (
       </h1>
     </div>
 
-    {/* две карточки */}
     <div style={{ display: "flex", gap: "52px", justifyContent: "center", alignItems: "flex-start", flexWrap: "wrap" }}>
       <div>
         <p style={{ fontSize: "9px", letterSpacing: "3px", color: "#8B6914", textTransform: "uppercase", textAlign: "center", marginBottom: "14px" }}>
@@ -228,7 +156,6 @@ const Index = () => (
       </div>
     </div>
 
-    {/* нижняя метка */}
     <div style={{
       position: "fixed", bottom: "20px", left: "50%", transform: "translateX(-50%)",
       background: "#5C1A1A", color: "#C9A84C",
