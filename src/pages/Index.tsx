@@ -1,6 +1,6 @@
 import React from "react";
 
-const PHOTO_URL = "https://cdn.poehali.dev/projects/8ddef25c-3a4a-44cd-b534-c89b41b2688b/bucket/6e3591f3-bbc2-4c04-a8d7-38b3d742e1ec.jpg";
+const PHOTO_URL = "https://cdn.poehali.dev/projects/8ddef25c-3a4a-44cd-b534-c89b41b2688b/bucket/340051bd-563f-4b7f-80d6-023123766025.jpg";
 const QR_URL = "https://cdn.poehali.dev/projects/8ddef25c-3a4a-44cd-b534-c89b41b2688b/bucket/0679bad0-1666-4912-8fc4-535629befa92.png";
 
 const cardBase: React.CSSProperties = {
